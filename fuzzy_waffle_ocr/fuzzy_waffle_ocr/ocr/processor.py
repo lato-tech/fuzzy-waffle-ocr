@@ -66,21 +66,76 @@ class OCRProcessor:
         return text
     
     def preprocess_image(self, image_path: str) -> np.ndarray:
-        """Preprocess image for better OCR accuracy"""
+        """Preprocess image for better OCR accuracy, optimized for handwritten bills"""
         # Read image
         img = cv2.imread(image_path)
         
         # Convert to grayscale
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
-        # Apply thresholding
-        thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+        # Enhanced preprocessing for handwritten text
+        # Apply Gaussian blur to reduce noise
+        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
         
-        # Remove noise
-        kernel = np.ones((1, 1), np.uint8)
-        opening = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel, iterations=1)
+        # Apply adaptive thresholding for varying lighting conditions
+        thresh = cv2.adaptiveThreshold(
+            blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+            cv2.THRESH_BINARY, 11, 2
+        )
         
-        return opening
+        # Morphological operations to clean up handwritten text
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
+        
+        # Close gaps in handwritten characters
+        closed = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=1)
+        
+        # Remove small noise
+        opening = cv2.morphologyEx(closed, cv2.MORPH_OPEN, kernel, iterations=1)
+        
+        # Dilation to make handwritten text bolder for better recognition
+        dilated = cv2.dilate(opening, kernel, iterations=1)
+        
+        return dilated
+    
+    def extract_text_with_handwriting_support(self, image_path: str) -> str:
+        """Extract text with enhanced handwriting recognition"""
+        # Preprocess image
+        processed_image = self.preprocess_image(image_path)
+        
+        # Try multiple OCR configurations for better handwriting recognition
+        ocr_configs = [
+            '--psm 6 -c tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,₹/-:() ',
+            '--psm 4 -c tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,₹/-:() ',
+            '--psm 8 -c tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,₹/-:() ',
+            '--psm 13'  # Raw line. Treat the image as a single text line
+        ]
+        
+        best_text = ""
+        highest_confidence = 0
+        
+        for config in ocr_configs:
+            try:
+                # Get text with confidence
+                data = pytesseract.image_to_data(
+                    processed_image, 
+                    config=config, 
+                    output_type=pytesseract.Output.DICT
+                )
+                
+                # Calculate average confidence
+                confidences = [int(conf) for conf in data['conf'] if int(conf) > 0]
+                avg_confidence = sum(confidences) / len(confidences) if confidences else 0
+                
+                if avg_confidence > highest_confidence:
+                    highest_confidence = avg_confidence
+                    text = pytesseract.image_to_string(processed_image, config=config)
+                    if len(text.strip()) > len(best_text.strip()):
+                        best_text = text
+                        
+            except Exception as e:
+                continue
+        
+        return best_text if best_text else pytesseract.image_to_string(processed_image)
     
     def extract_invoice_data(self, ocr_text: str) -> Dict[str, Any]:
         """Extract structured invoice data from OCR text"""

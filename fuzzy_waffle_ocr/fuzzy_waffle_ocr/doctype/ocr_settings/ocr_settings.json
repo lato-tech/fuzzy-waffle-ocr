@@ -1,0 +1,259 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "ocr_engine",
+  "confidence_threshold",
+  "auto_submit_threshold",
+  "column_break_1",
+  "learning_enabled",
+  "historical_data_processed",
+  "handwriting_recognition",
+  "section_break_2",
+  "ai_enabled",
+  "openai_api_key",
+  "ai_model",
+  "column_break_2",
+  "max_tokens",
+  "ai_confidence_threshold",
+  "section_break_5",
+  "chatbot_enabled",
+  "use_raven_credentials",
+  "chatbot_welcome_message",
+  "column_break_4",
+  "chatbot_max_history",
+  "chatbot_auto_suggestions",
+  "section_break_3",
+  "google_vision_enabled",
+  "google_vision_credentials",
+  "section_break_4",
+  "batch_processing_enabled",
+  "max_batch_size",
+  "column_break_3",
+  "image_preprocessing",
+  "debug_mode"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Basic OCR Settings"
+  },
+  {
+   "default": "tesseract",
+   "fieldname": "ocr_engine",
+   "fieldtype": "Select",
+   "label": "OCR Engine",
+   "options": "tesseract\ngoogle_vision\nhybrid",
+   "reqd": 1
+  },
+  {
+   "default": "60",
+   "fieldname": "confidence_threshold",
+   "fieldtype": "Percent",
+   "label": "Confidence Threshold",
+   "description": "Minimum confidence for automatic processing"
+  },
+  {
+   "default": "95",
+   "fieldname": "auto_submit_threshold",
+   "fieldtype": "Percent",
+   "label": "Auto Submit Threshold",
+   "description": "Confidence level for automatic document submission"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "learning_enabled",
+   "fieldtype": "Check",
+   "label": "Learning Enabled"
+  },
+  {
+   "default": "0",
+   "fieldname": "historical_data_processed",
+   "fieldtype": "Check",
+   "label": "Historical Data Processed",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "handwriting_recognition",
+   "fieldtype": "Check",
+   "label": "Enhanced Handwriting Recognition",
+   "description": "Use advanced preprocessing for handwritten bills"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "AI Integration (Phase 2)"
+  },
+  {
+   "default": "0",
+   "fieldname": "ai_enabled",
+   "fieldtype": "Check",
+   "label": "ChatGPT AI Enhancement Enabled"
+  },
+  {
+   "fieldname": "openai_api_key",
+   "fieldtype": "Password",
+   "label": "OpenAI API Key",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "default": "gpt-3.5-turbo",
+   "fieldname": "ai_model",
+   "fieldtype": "Select",
+   "label": "AI Model",
+   "options": "gpt-3.5-turbo\ngpt-4\ngpt-4-turbo",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1500",
+   "fieldname": "max_tokens",
+   "fieldtype": "Int",
+   "label": "Max Tokens",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "default": "80",
+   "fieldname": "ai_confidence_threshold",
+   "fieldtype": "Percent",
+   "label": "AI Confidence Threshold",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Chatbot Assistant"
+  },
+  {
+   "default": "1",
+   "fieldname": "chatbot_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Chatbot Assistant"
+  },
+  {
+   "default": "1",
+   "fieldname": "use_raven_credentials",
+   "fieldtype": "Check",
+   "label": "Use Raven ChatGPT Credentials",
+   "description": "Use existing Raven OpenAI credentials if available",
+   "depends_on": "chatbot_enabled"
+  },
+  {
+   "default": "Hello! I'm your Fuzzy Waffle OCR assistant. I can help you with invoice processing, explain OCR results, and guide you through expense categorization. How can I assist you today?",
+   "fieldname": "chatbot_welcome_message",
+   "fieldtype": "Text",
+   "label": "Welcome Message",
+   "depends_on": "chatbot_enabled"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "20",
+   "fieldname": "chatbot_max_history",
+   "fieldtype": "Int",
+   "label": "Max Conversation History",
+   "depends_on": "chatbot_enabled"
+  },
+  {
+   "default": "1",
+   "fieldname": "chatbot_auto_suggestions",
+   "fieldtype": "Check",
+   "label": "Show Auto Suggestions",
+   "description": "Display helpful suggestions based on context",
+   "depends_on": "chatbot_enabled"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Google Vision API"
+  },
+  {
+   "default": "0",
+   "fieldname": "google_vision_enabled",
+   "fieldtype": "Check",
+   "label": "Google Vision API Enabled"
+  },
+  {
+   "fieldname": "google_vision_credentials",
+   "fieldtype": "Attach",
+   "label": "Google Vision Credentials JSON",
+   "depends_on": "google_vision_enabled"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Advanced Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "batch_processing_enabled",
+   "fieldtype": "Check",
+   "label": "Batch Processing Enabled"
+  },
+  {
+   "default": "10",
+   "fieldname": "max_batch_size",
+   "fieldtype": "Int",
+   "label": "Max Batch Size",
+   "depends_on": "batch_processing_enabled"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "enhanced",
+   "fieldname": "image_preprocessing",
+   "fieldtype": "Select",
+   "label": "Image Preprocessing",
+   "options": "basic\nenhanced\naggressive"
+  },
+  {
+   "default": "0",
+   "fieldname": "debug_mode",
+   "fieldtype": "Check",
+   "label": "Debug Mode",
+   "description": "Save intermediate processing files for debugging"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fuzzy Waffle Ocr",
+ "name": "OCR Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
