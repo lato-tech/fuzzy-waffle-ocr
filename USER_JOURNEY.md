@@ -362,12 +362,14 @@ Total Time: 2 minutes (vs 15 minutes manual process)
 ## Expected Outcomes & Metrics
 
 ### Time Savings Progression
-| Phase | Duration | Time per Invoice | Automation % | User Effort |
-|-------|----------|------------------|--------------|-------------|
-| Manual Process | Always | 12-15 minutes | 0% | High |
-| Month 1 | Learning | 6-8 minutes | 40% | Medium-High |
-| Month 3 | Improving | 3-4 minutes | 60% | Medium |
-| Month 6+ | Mature | 1 minute | 95% | Minimal |
+┌─────────────────┬──────────┬──────────────────┬──────────────┬─────────────┐
+│ Phase           │ Duration │ Time per Invoice │ Automation % │ User Effort │
+├─────────────────┼──────────┼──────────────────┼──────────────┼─────────────┤
+│ Manual Process  │ Always   │ 12-15 minutes    │ 0%           │ High        │
+│ Month 1         │ Learning │ 6-8 minutes      │ 40%          │ Medium-High │
+│ Month 3         │ Improving│ 3-4 minutes      │ 60%          │ Medium      │
+│ Month 6+        │ Mature   │ 1 minute         │ 95%          │ Minimal     │
+└─────────────────┴──────────┴──────────────────┴──────────────┴─────────────┘
 
 ### Accuracy Improvements
 - **Manual Process:** 85-90% accuracy (typos, wrong conversions)

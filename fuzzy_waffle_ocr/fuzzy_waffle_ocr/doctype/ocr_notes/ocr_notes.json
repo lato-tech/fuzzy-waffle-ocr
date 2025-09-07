@@ -1,0 +1,231 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice_section",
+  "invoice_file",
+  "scanned_pdf_path",
+  "original_ocr_processor",
+  "column_break_1",
+  "linked_purchase_invoice",
+  "linked_journal_entry",
+  "processing_date",
+  "notes_section",
+  "note_text",
+  "context_type",
+  "linked_field",
+  "column_break_2", 
+  "confidence_impact",
+  "coordinates_x",
+  "coordinates_y",
+  "learning_section",
+  "applied_to_learning",
+  "pattern_similarity_score",
+  "column_break_3",
+  "times_referenced",
+  "last_used_date",
+  "user_section",
+  "created_by_user",
+  "processing_time_saved"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Information"
+  },
+  {
+   "fieldname": "invoice_file",
+   "fieldtype": "Link",
+   "label": "Invoice File",
+   "options": "File",
+   "reqd": 1,
+   "description": "Link to the scanned PDF file in ERPNext Files"
+  },
+  {
+   "fieldname": "scanned_pdf_path",
+   "fieldtype": "Data",
+   "label": "PDF File Path",
+   "read_only": 1,
+   "description": "Full path to the original scanned PDF"
+  },
+  {
+   "fieldname": "original_ocr_processor", 
+   "fieldtype": "Link",
+   "label": "OCR Processor Record",
+   "options": "Invoice OCR Processor",
+   "description": "Link to the original OCR processing record"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_purchase_invoice",
+   "fieldtype": "Link", 
+   "label": "Purchase Invoice",
+   "options": "Purchase Invoice",
+   "description": "Final created Purchase Invoice"
+  },
+  {
+   "fieldname": "linked_journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry", 
+   "options": "Journal Entry",
+   "description": "Final created Journal Entry (if applicable)"
+  },
+  {
+   "fieldname": "processing_date",
+   "fieldtype": "Datetime",
+   "label": "Processing Date",
+   "default": "now()",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break", 
+   "label": "Manual Notes"
+  },
+  {
+   "fieldname": "note_text",
+   "fieldtype": "Text",
+   "label": "Manual Note Content",
+   "reqd": 1,
+   "description": "The handwritten note that OCR could not read"
+  },
+  {
+   "fieldname": "context_type",
+   "fieldtype": "Select",
+   "label": "Context Type",
+   "options": "project\nitem\npayment\nexpense_head\nsupplier\ngeneral",
+   "reqd": 1,
+   "description": "What this note relates to"
+  },
+  {
+   "fieldname": "linked_field",
+   "fieldtype": "Data",
+   "label": "Linked Field",
+   "description": "Which ERPNext field this note helped fill"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "confidence_impact",
+   "fieldtype": "Percent",
+   "label": "Confidence Impact",
+   "description": "How much this note improved OCR confidence",
+   "default": "0"
+  },
+  {
+   "fieldname": "coordinates_x",
+   "fieldtype": "Int",
+   "label": "PDF X Position",
+   "description": "X coordinate of note in PDF (optional)"
+  },
+  {
+   "fieldname": "coordinates_y", 
+   "fieldtype": "Int",
+   "label": "PDF Y Position",
+   "description": "Y coordinate of note in PDF (optional)"
+  },
+  {
+   "fieldname": "learning_section",
+   "fieldtype": "Section Break",
+   "label": "Learning Analytics"
+  },
+  {
+   "fieldname": "applied_to_learning",
+   "fieldtype": "Check",
+   "label": "Applied to Learning Algorithm",
+   "default": "0",
+   "description": "Whether this note was used to train the system"
+  },
+  {
+   "fieldname": "pattern_similarity_score",
+   "fieldtype": "Percent",
+   "label": "Pattern Similarity Score", 
+   "description": "Similarity to existing patterns",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "times_referenced",
+   "fieldtype": "Int",
+   "label": "Times Referenced",
+   "default": "0",
+   "read_only": 1,
+   "description": "How many times this pattern has been used"
+  },
+  {
+   "fieldname": "last_used_date",
+   "fieldtype": "Date",
+   "label": "Last Used Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_section",
+   "fieldtype": "Section Break",
+   "label": "User Analytics" 
+  },
+  {
+   "fieldname": "created_by_user",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "default": "user",
+   "read_only": 1
+  },
+  {
+   "fieldname": "processing_time_saved",
+   "fieldtype": "Int", 
+   "label": "Processing Time Saved (seconds)",
+   "description": "Estimated time saved by this manual note",
+   "default": "0"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator", 
+ "module": "Fuzzy Waffle Ocr",
+ "name": "OCR Notes",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "naming_rule": "Expression (old style)",
+ "autoname": "OCRN.YYYY.MM.#####"
+}
