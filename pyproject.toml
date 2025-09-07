@@ -1,0 +1,20 @@
+[project]
+name = "fuzzy_waffle_ocr"
+version = "1.0.0"
+description = "Intelligent OCR-based invoice processing for ERPNext with learning capabilities"
+authors = [
+    {name = "Lato Tech", email = "info@namiex.com"}
+]
+dependencies = [
+    "frappe",
+    "pytesseract",
+    "Pillow",
+    "opencv-python",
+    "fuzzywuzzy",
+    "python-Levenshtein",
+    "pdf2image",
+    "numpy"
+]
+
+[tool.bench]
+app_name = "fuzzy_waffle_ocr"

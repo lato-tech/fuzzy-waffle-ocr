@@ -390,13 +390,137 @@ The system transforms from a simple OCR tool into an **intelligent business assi
 
 ---
 
+## Advanced Intelligence Examples
+
+### Multi-Context Learning
+The system learns like an experienced data entry person who remembers complex patterns:
+
+```
+🧠 Intelligence Pattern: "Diesel Item"
+
+Historical Analysis:
+├─ Supplier: ABC Motors
+├─ Item: Diesel
+└─ Context Learning:
+    ├─ Project "Generator" → Expense: "Generator Fuel - Company"
+    ├─ Project "Truck 1" → Expense: "Vehicle Fuel - Truck 1" 
+    ├─ Project "Truck 2" → Expense: "Vehicle Fuel - Truck 2"
+    └─ No Project → Expense: "General Fuel - Company"
+
+Smart Suggestion Logic:
+When OCR extracts "Diesel - 50L - ₹4,000"
+├─ System checks: Which project is this likely for?
+├─ If invoice mentions "Generator": 
+│   └─ Expense Head: "Generator Fuel - Company" (95% confidence)
+├─ If invoice mentions "Truck 1":
+│   └─ Expense Head: "Vehicle Fuel - Truck 1" (95% confidence)  
+└─ If no context: Ask user + remember choice
+```
+
+```
+🧠 Intelligence Pattern: "Coolant Item"
+
+Historical Analysis:
+├─ Supplier: Parts Warehouse  
+├─ Item: Coolant
+└─ Context Learning:
+    ├─ Used 15 times for "R&M - Truck 1" project
+    ├─ Used 8 times for "R&M - Truck 2" project
+    ├─ Used 2 times for "Generator Maintenance"
+    └─ Cost Center: Always "Operations" (98% pattern)
+
+Smart Suggestion:
+When processing coolant purchase:
+├─ Most likely: "R&M - Truck 1" (60% confidence)
+├─ Alternative: "R&M - Truck 2" (32% confidence)  
+├─ Cost Center: "Operations" (98% confidence)
+└─ Warehouse: "Maintenance Store" (learned pattern)
+```
+
+### Cross-Field Intelligence Learning
+
+The system analyzes **ALL historical field relationships**:
+
+```
+📊 Comprehensive Field Analysis:
+
+Purchase Invoice Learning:
+├─ Supplier → Payment Terms patterns
+├─ Item Group → Default Tax Templates  
+├─ Project → Cost Center relationships
+├─ Item + Project → Expense Account patterns
+├─ Supplier → Preferred Warehouse patterns
+├─ Amount Range → Asset vs Expense classification
+└─ Seasonal patterns (monthly fuel, quarterly parts)
+
+Journal Entry Learning:
+├─ Expense descriptions → Account Head mapping
+├─ Project context → Account selection
+├─ Amount patterns → Expense categorization
+└─ User remark patterns → Item identification
+
+Payment Entry Learning:
+├─ Supplier → Preferred payment mode
+├─ Supplier → Default bank account
+├─ Payment timing patterns
+└─ Project-specific payment preferences
+
+Asset Learning:  
+├─ Item + Amount → Asset category prediction
+├─ Asset → Depreciation method patterns
+├─ Supplier → Asset warehouse preferences
+└─ Project → Asset allocation patterns
+```
+
+### Real-World Intelligence Examples
+
+**Example 1: Office Supplies Intelligence**
+```
+Historical Pattern:
+├─ Item: "A4 Paper" from "Office Mart"
+├─ Always goes to: "Office Expenses - Admin"
+├─ Always assigned to: "Administration" cost center  
+├─ Tax: Always "GST 12%" (stationery rate)
+├─ Warehouse: Always "Office Store"
+├─ Payment: Always "Cash - Petty Cash"
+└─ Amount range: ₹500-2000 (never an asset)
+
+When OCR sees "A4 Paper - 10 Reams - ₹1,500":
+└─ System auto-fills ALL fields with 95% confidence
+```
+
+**Example 2: Vehicle Maintenance Intelligence**  
+```
+Historical Pattern:
+├─ Supplier: "ABC Motors"
+├─ Project pattern analysis:
+│   ├─ 70% invoices → "Vehicle Maintenance - Truck 1"
+│   ├─ 25% invoices → "Vehicle Maintenance - Truck 2"
+│   └─ 5% invoices → "Generator Maintenance"
+├─ Item-specific patterns:
+│   ├─ Diesel → Always "Fuel" expense heads
+│   ├─ Oil/Grease → Always "R&M" expense heads  
+│   ├─ Spare parts → "R&M" or "Asset" (based on amount)
+│   └─ Service charges → "Professional Services"
+└─ Payment: Always "30 Days Credit" + "Bank Transfer"
+
+When OCR processes ABC Motors invoice:
+├─ Auto-suggests most likely project (70% confidence)
+├─ Maps each item to correct expense head
+├─ Sets payment terms automatically
+└─ Assigns correct cost centers
+```
+
 ## Technical Implementation Notes
 
-### Learning Algorithm
-- Uses **fuzzy string matching** (80% threshold) for item recognition
-- Stores **supplier-specific patterns** in dedicated database tables  
-- **Confidence scoring** improves with each correction
-- **Historical data training** from existing Purchase Invoices
+### Ultra-Comprehensive Learning Algorithm
+- **ALL historical fields analyzed**: Every field from every transaction
+- **Cross-reference intelligence**: Item + Project + Supplier patterns
+- **Context-aware suggestions**: Like a smart data entry person
+- **Multi-source learning**: PI + JE + PE + Assets + Stock Entries
+- **Temporal pattern recognition**: Seasonal, monthly, quarterly patterns
+- **Amount-based intelligence**: Expense vs Asset classification
+- **Fuzzy matching + Business logic**: 80% threshold + smart defaults
 
 ### Integration Points
 - **Custom buttons** on Purchase Invoice/Journal Entry forms

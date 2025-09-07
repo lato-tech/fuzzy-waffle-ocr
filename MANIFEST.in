@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include fuzzy_waffle_ocr *.css
+recursive-include fuzzy_waffle_ocr *.csv
+recursive-include fuzzy_waffle_ocr *.html
+recursive-include fuzzy_waffle_ocr *.ico
+recursive-include fuzzy_waffle_ocr *.js
+recursive-include fuzzy_waffle_ocr *.json
+recursive-include fuzzy_waffle_ocr *.md
+recursive-include fuzzy_waffle_ocr *.png
+recursive-include fuzzy_waffle_ocr *.py
+recursive-include fuzzy_waffle_ocr *.svg
+recursive-include fuzzy_waffle_ocr *.txt
+recursive-exclude fuzzy_waffle_ocr *.pyc

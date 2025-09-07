@@ -1,0 +1,20 @@
+# Core Frappe dependency
+frappe
+
+# OCR Processing
+pytesseract>=0.3.10
+Pillow>=8.0.0
+opencv-python>=4.5.0
+
+# Text Processing & Learning
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.0
+
+# PDF Processing  
+pdf2image>=1.14.0
+
+# Numerical Processing
+numpy>=1.19.0
+
+# Optional: Google Vision API support
+# google-cloud-vision>=2.0.0
