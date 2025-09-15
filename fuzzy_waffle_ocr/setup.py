@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 
-<<<<<<< HEAD
 with open("requirements.txt") as f:
     install_requires = f.read().strip().split("\n")
 
@@ -17,25 +16,4 @@ setup(
     zip_safe=False,
     include_package_data=True,
     install_requires=install_requires
-=======
-setup(
-    name='fuzzy_waffle_ocr',
-    version='1.0.0',
-    description='Intelligent OCR-based invoice processing for ERPNext with learning capabilities',
-    author='Lato Tech',
-    author_email='info@namiex.com',
-    packages=find_packages(),
-    zip_safe=False,
-    include_package_data=True,
-    install_requires=[
-        'frappe',
-        'pytesseract',
-        'Pillow',
-        'opencv-python',
-        'fuzzywuzzy',
-        'python-Levenshtein',
-        'pdf2image',
-        'numpy'
-    ],
->>>>>>> e17fd3d3bc6d9cdb541b60af2d6a8dba37ba240b
 )

@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ocr_item_text",
+  "suggested_erpnext_item",
+  "final_erpnext_item",
+  "column_break_1",
+  "ocr_quantity",
+  "ocr_uom",
+  "ocr_rate",
+  "ocr_amount",
+  "section_break_1",
+  "erpnext_quantity",
+  "erpnext_uom",
+  "erpnext_rate",
+  "column_break_2",
+  "conversion_factor",
+  "conversion_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "ocr_item_text",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "OCR Item Text"
+  },
+  {
+   "fieldname": "suggested_erpnext_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Suggested ERPNext Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "final_erpnext_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Final ERPNext Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ocr_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "OCR Quantity"
+  },
+  {
+   "fieldname": "ocr_uom",
+   "fieldtype": "Data",
+   "label": "OCR UOM"
+  },
+  {
+   "fieldname": "ocr_rate",
+   "fieldtype": "Currency",
+   "label": "OCR Rate"
+  },
+  {
+   "fieldname": "ocr_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "OCR Amount"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Conversion Details"
+  },
+  {
+   "fieldname": "erpnext_quantity",
+   "fieldtype": "Float",
+   "label": "ERPNext Quantity"
+  },
+  {
+   "fieldname": "erpnext_uom",
+   "fieldtype": "Link",
+   "label": "ERPNext UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "erpnext_rate",
+   "fieldtype": "Currency",
+   "label": "ERPNext Rate"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor"
+  },
+  {
+   "fieldname": "conversion_notes",
+   "fieldtype": "Text",
+   "label": "Conversion Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fuzzy Waffle Ocr",
+ "name": "Extracted Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

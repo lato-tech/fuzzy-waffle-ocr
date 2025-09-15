@@ -1,0 +1,324 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_1",
+  "supplier",
+  "invoice_number",
+  "invoice_date",
+  "payment_terms",
+  "column_break_1",
+  "document_type",
+  "asset_creation_required",
+  "ocr_status",
+  "learning_confidence",
+  "section_break_2",
+  "extracted_items",
+  "final_mappings",
+  "section_break_3",
+  "total_amount",
+  "created_document",
+  "created_document_type",
+  "column_break_3",
+  "purchase_receipt_created",
+  "payment_entry_created",
+  "journal_entry_created",
+  "section_break_4",
+  "suggested_project",
+  "project_confidence",
+  "column_break_4",
+  "suggested_cost_center",
+  "cost_center_confidence",
+  "section_break_5",
+  "user_corrections",
+  "invoice_attachment_status",
+  "section_break_6",
+  "mandatory_fields_data",
+  "missing_fields_status",
+  "field_learning_applied",
+  "section_break_7",
+  "processing_stage",
+  "automation_percentage",
+  "user_interventions_count",
+  "learning_improvements"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "OCRP-.YYYY.-.MM.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Link",
+   "label": "Payment Terms",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "Purchase Invoice\nJournal Entry\nPurchase Receipt",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "asset_creation_required",
+   "fieldtype": "Check",
+   "label": "Asset Creation Required"
+  },
+  {
+   "fieldname": "ocr_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "OCR Status",
+   "options": "Draft\nProcessing\nReady\nCompleted"
+  },
+  {
+   "fieldname": "learning_confidence",
+   "fieldtype": "Percent",
+   "label": "Learning Confidence"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "OCR Processing"
+  },
+  {
+   "fieldname": "extracted_items",
+   "fieldtype": "Table",
+   "label": "Extracted Items",
+   "options": "Extracted Items"
+  },
+  {
+   "fieldname": "final_mappings",
+   "fieldtype": "Table",
+   "label": "Final Mappings",
+   "options": "Final Mappings"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Document Creation"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Created Document",
+   "options": "created_document_type"
+  },
+  {
+   "fieldname": "created_document_type",
+   "fieldtype": "Link",
+   "label": "Created Document Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_receipt_created",
+   "fieldtype": "Link",
+   "label": "Purchase Receipt Created",
+   "options": "Purchase Receipt"
+  },
+  {
+   "fieldname": "payment_entry_created",
+   "fieldtype": "Link",
+   "label": "Payment Entry Created",
+   "options": "Payment Entry"
+  },
+  {
+   "fieldname": "journal_entry_created",
+   "fieldtype": "Link",
+   "label": "Journal Entry Created",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Project & Cost Center"
+  },
+  {
+   "fieldname": "suggested_project",
+   "fieldtype": "Link",
+   "label": "Suggested Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "project_confidence",
+   "fieldtype": "Percent",
+   "label": "Project Confidence"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "suggested_cost_center",
+   "fieldtype": "Link",
+   "label": "Suggested Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "cost_center_confidence",
+   "fieldtype": "Percent",
+   "label": "Cost Center Confidence"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Learning & Audit"
+  },
+  {
+   "fieldname": "user_corrections",
+   "fieldtype": "Long Text",
+   "label": "User Corrections"
+  },
+  {
+   "fieldname": "invoice_attachment_status",
+   "fieldtype": "Select",
+   "label": "Invoice Attachment Status",
+   "options": "\nAttached to Created Doc\nPending\nError"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "label": "Dynamic Fields Management"
+  },
+  {
+   "fieldname": "mandatory_fields_data",
+   "fieldtype": "JSON",
+   "label": "Mandatory Fields Data"
+  },
+  {
+   "fieldname": "missing_fields_status",
+   "fieldtype": "Select",
+   "label": "Missing Fields Status",
+   "options": "Complete\nPending User Input\nError"
+  },
+  {
+   "default": "0",
+   "fieldname": "field_learning_applied",
+   "fieldtype": "Check",
+   "label": "Field Learning Applied"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Learning Metrics"
+  },
+  {
+   "fieldname": "processing_stage",
+   "fieldtype": "Select",
+   "label": "Processing Stage",
+   "options": "Stage 1\nStage 2\nStage 3\nStage 4"
+  },
+  {
+   "fieldname": "automation_percentage",
+   "fieldtype": "Percent",
+   "label": "Automation Percentage"
+  },
+  {
+   "fieldname": "user_interventions_count",
+   "fieldtype": "Int",
+   "label": "User Interventions Count"
+  },
+  {
+   "fieldname": "learning_improvements",
+   "fieldtype": "Long Text",
+   "label": "Learning Improvements"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fuzzy Waffle Ocr",
+ "name": "Invoice OCR Processor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "invoice_number",
+ "track_changes": 1
+}
