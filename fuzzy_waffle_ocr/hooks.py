@@ -1,10 +1,10 @@
 app_name = "fuzzy_waffle_ocr"
 app_title = "Fuzzy Waffle OCR"
-app_publisher = "Lato Tech"
+app_publisher = "Lato Technologies"
 app_description = "Intelligent OCR-based invoice processing for ERPNext with learning capabilities"
 app_icon = "octicon octicon-file-code"
 app_color = "grey"
-app_email = "info@namiex.com"
+app_email = "lato@getlato.com"
 app_license = "MIT"
 
 # Includes in <head>
